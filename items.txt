@@ -1,0 +1,4 @@
+Milk,100.31
+Bread,600.22
+Eggs,600.73
+Coffee,50.99

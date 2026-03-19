@@ -1,0 +1,11 @@
+QuickCart Receipt
+-------------------
+Items:
+Milk,100.31
+Bread,600.22
+Eggs,600.73
+Coffee,50.99
+
+Subtotal: 1352.25
+Discount: 135.23
+Total: 1217.03
