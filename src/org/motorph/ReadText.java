@@ -94,18 +94,17 @@ public class ReadText {
                         continue;
                     }
 
-                    // GET FIRST NAME (uppercase)
                     String firstName = name.trim().split("\\s+")[0].toUpperCase();
 
-                    // DEDUCTIONS
+                    // Deductions
                     double sss = getSSS(grossSalary);
                     double philhealth = getPhilHealth(grossSalary);
                     double pagibig = getPagIbig(grossSalary);
 
-                    // TAXABLE INCOME
+                    // Taxable income
                     double taxableIncome = grossSalary - (sss + philhealth + pagibig);
 
-                    // TAX
+                    // Tax
                     double tax = getTax(taxableIncome);
 
                     double totalDeductions = sss + philhealth + pagibig + tax;
@@ -113,14 +112,15 @@ public class ReadText {
 
                     // OUTPUT
                     System.out.println("\n--- " + firstName + " PAYROLL SUMMARY ---");
-                    System.out.println("Employee: " + name);
-                    System.out.printf("Gross Salary: %.2f\n", grossSalary);
-                    System.out.printf("SSS: %.2f\n", sss);
-                    System.out.printf("PhilHealth: %.2f\n", philhealth);
-                    System.out.printf("Pag-IBIG: %.2f\n", pagibig);
-                    System.out.printf("Taxable Income: %.2f\n", taxableIncome);
-                    System.out.printf("Income Tax: %.2f\n", tax);
-                    System.out.printf("Net Pay: %.2f\n", netPay);
+                    System.out.println("Employee:       " + name);
+                    System.out.printf("Gross Salary:   PHP %,.2f\n", grossSalary);
+                    System.out.printf("SSS:            PHP %,.2f\n", sss);
+                    System.out.printf("PhilHealth:     PHP %,.2f\n", philhealth);
+                    System.out.printf("Pag-IBIG:       PHP %,.2f\n", pagibig);
+                    System.out.printf("Taxable Income: PHP %,.2f\n", taxableIncome);
+                    System.out.printf("Income Tax:     PHP %,.2f\n", tax);
+                    System.out.println();
+                    System.out.printf("NET PAY:        PHP %,.2f\n", netPay);
 
                 } catch (NumberFormatException e) {
                     System.out.println("Invalid number format in line: " + line);
@@ -177,22 +177,22 @@ public class ReadText {
         return contribution;
     }
 
-    // TAX
+    // TAX (STRICT TRAIN TABLE)
     public static double getTax(double taxableIncome) {
 
-        if (taxableIncome <= 20832) {
+        if (taxableIncome <= 20833) {
             return 0;
 
-        } else if (taxableIncome <= 33332) {
+        } else if (taxableIncome <= 33333) {
             return (taxableIncome - 20833) * 0.20;
 
-        } else if (taxableIncome <= 66666) {
+        } else if (taxableIncome <= 66667) {
             return 2500 + (taxableIncome - 33333) * 0.25;
 
-        } else if (taxableIncome <= 166666) {
+        } else if (taxableIncome <= 166667) {
             return 10833 + (taxableIncome - 66667) * 0.30;
 
-        } else if (taxableIncome <= 666666) {
+        } else if (taxableIncome <= 666667) {
             return 40833.33 + (taxableIncome - 166667) * 0.32;
 
         } else {
