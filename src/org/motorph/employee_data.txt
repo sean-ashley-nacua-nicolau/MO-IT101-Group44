@@ -1,3 +1,12 @@
 Juan Dela Cruz,40000
 Maria Santos,55000
-John Doe, 100000
+Albert,500
+Bernard,2000
+Charlie,5000
+Doores,20000
+Ethan,30000
+Father Ralph,50000
+Gerald,300000
+Hannah,1000000
+Jake Paul,100
+Logan Paul,0

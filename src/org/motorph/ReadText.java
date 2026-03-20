@@ -90,25 +90,30 @@ public class ReadText {
                     double grossSalary = Double.parseDouble(data[1].trim());
 
                     if (grossSalary <= 0) {
-                        System.out.println("Invalid salary for: " + name);
+                        System.out.println(name + " has no salary!");
                         continue;
                     }
 
                     String firstName = name.trim().split("\\s+")[0].toUpperCase();
 
-                    // Deductions
+                    // DEDUCTIONS
                     double sss = getSSS(grossSalary);
                     double philhealth = getPhilHealth(grossSalary);
                     double pagibig = getPagIbig(grossSalary);
 
-                    // Taxable income
+                    // TAXABLE INCOME
                     double taxableIncome = grossSalary - (sss + philhealth + pagibig);
 
-                    // Tax
+                    // TAX
                     double tax = getTax(taxableIncome);
 
                     double totalDeductions = sss + philhealth + pagibig + tax;
                     double netPay = grossSalary - totalDeductions;
+
+                    // VALIDATION CHECK
+                    if (totalDeductions > grossSalary) {
+                        System.out.printf("\n! WARNING: %s's gross salary is exceeded by deductions!\n", name);
+                    }
 
                     // OUTPUT
                     System.out.println("\n--- " + firstName + " PAYROLL SUMMARY ---");
@@ -177,7 +182,7 @@ public class ReadText {
         return contribution;
     }
 
-    // TAX (STRICT TRAIN TABLE)
+    // TAX
     public static double getTax(double taxableIncome) {
 
         if (taxableIncome <= 20833) {
